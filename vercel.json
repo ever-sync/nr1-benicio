@@ -19,6 +19,26 @@
         },
         { "key": "Cache-Control", "value": "public, max-age=3600" }
       ]
+    },
+    {
+      "source": "/nr1/guia-conformidade-nr1-benicio.pdf",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"Guia-de-Conformidade-NR1-Benicio.pdf\""
+        },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/nr1/decisoes-dificeis-rh-benicio.pdf",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"Decisoes-Dificeis-de-RH-Benicio.pdf\""
+        },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
     }
   ]
 }

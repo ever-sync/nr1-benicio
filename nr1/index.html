@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Saúde mental no trabalho e a nova NR-1 | Benício Advogados</title>
+  <meta name="description" content="Dois e-books gratuitos para entender a nova NR-1 e conduzir decisões sensíveis de RH com clareza e segurança.">
+  <meta name="theme-color" content="#f4f2ed">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Saúde mental no trabalho e a nova NR-1">
+  <meta property="og:description" content="Dois guias gratuitos para entender o que mudou e agir com segurança.">
+  <meta property="og:image" content="/nr1/og-nr1.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#171717;
+      --ink-2:#454543;
+      --ink-3:#74746f;
+      --paper:#f4f2ed;
+      --white:#fff;
+      --mist:#e8e6e0;
+      --line:rgba(23,23,23,.16);
+      --line-dark:rgba(255,255,255,.16);
+      --accent:#f8ad00;
+      --accent-light:#ffd262;
+      --display:"Montserrat",Arial,sans-serif;
+      --sans:"Poppins",system-ui,-apple-system,sans-serif;
+      --ease:cubic-bezier(.22,.61,.36,1);
+      --ease-out:cubic-bezier(.16,1,.3,1);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    button,input{font:inherit}
+    a{color:inherit}
+    ::selection{background:var(--accent);color:var(--ink)}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+
+    .wrap{width:min(1180px,90vw);margin-inline:auto}
+    .narrow{width:min(820px,90vw);margin-inline:auto}
+
+    .context-bar{height:30px;background:var(--ink);color:rgba(255,255,255,.72);display:flex;align-items:center;justify-content:center;text-transform:uppercase;letter-spacing:.22em;font-size:8.5px;font-weight:500;position:relative;z-index:120}
+    .context-bar i{color:var(--accent);font-style:normal;padding-inline:11px}
+
+    header{position:absolute;top:30px;left:0;right:0;z-index:110;padding:24px 0;border-bottom:1px solid transparent;transition:padding .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease)}
+    header.stuck{position:fixed;top:0;padding:13px 0;background:rgba(244,242,237,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:var(--line)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:30px}
+    .logo{display:block;width:min(220px,25vw);height:auto}
+    .header-inner .logo{filter:brightness(0) saturate(100%)}
+    .header-links{display:flex;align-items:center;gap:26px}
+    .header-links a{text-decoration:none;text-transform:uppercase;font-size:9px;letter-spacing:.18em;font-weight:500;white-space:nowrap}
+    .institutional{color:var(--ink-3)}
+    .institutional:hover{color:var(--ink)}
+    .pill{border:1px solid var(--ink);border-radius:999px;padding:10px 18px;transition:background .25s,color .25s}
+    .pill:hover{background:var(--ink);color:var(--white)}
+
+    .hero{min-height:calc(100svh - 30px);display:flex;align-items:center;padding:145px 0 84px;position:relative;overflow:hidden;background-image:url('hero-nr1-copy.jpg');background-size:cover;background-position:center right}
+    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(244,242,237,.98) 0%,rgba(244,242,237,.94) 42%,rgba(244,242,237,.42) 60%,rgba(244,242,237,.04) 82%);pointer-events:none}
+    .hero-grid{position:relative}
+    .hero-grid>div{max-width:min(780px,61vw)}
+    .eyebrow,.section-label{display:flex;align-items:center;gap:13px;text-transform:uppercase;letter-spacing:.26em;font-size:9.5px;font-weight:500;color:var(--ink-3)}
+    .eyebrow::before,.section-label::before{content:"";width:34px;height:3px;background:var(--accent);flex:0 0 auto}
+    .eyebrow{margin-bottom:28px}
+    h1,h2,h3{font-family:var(--display);text-wrap:balance}
+    h1{font-weight:400;font-size:48px;line-height:1.12;letter-spacing:-.035em;max-width:780px}
+    h1 strong{font-weight:600}
+    .hero-copy{margin-top:28px;max-width:64ch;color:var(--ink-2);font-size:clamp(.98rem,1.2vw,1.1rem);font-weight:300;line-height:1.8}
+    .hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:34px}
+    .button{min-height:51px;border:1px solid var(--ink);background:var(--ink);color:var(--white);border-radius:999px;padding:0 23px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;text-transform:uppercase;letter-spacing:.12em;font-size:9.5px;font-weight:500;cursor:pointer;transition:transform .25s var(--ease),background .25s,color .25s}
+    .button:hover{transform:translateY(-2px);background:var(--accent);border-color:var(--accent);color:var(--ink)}
+    .button.secondary{background:transparent;color:var(--ink)}
+    .button.secondary:hover{background:var(--white);border-color:var(--ink)}
+    .support{margin-top:16px;color:var(--ink-3);font-size:10px;text-transform:uppercase;letter-spacing:.14em}
+
+    .topic-strip{overflow:hidden;background:var(--accent);border-block:1px solid rgba(23,23,23,.2)}
+    .marquee{display:flex;width:max-content;animation:marquee 32s linear infinite}
+    .marquee span{padding:18px 0;white-space:nowrap;text-transform:uppercase;font-size:10px;letter-spacing:.19em;font-weight:500}
+    .marquee b{padding:0 24px;font-weight:400;opacity:.45}
+    .marquee:hover{animation-play-state:paused}
+    @keyframes marquee{to{transform:translateX(-50%)}}
+
+    section{padding:clamp(84px,10vw,144px) 0}
+    .section-label{margin-bottom:24px}
+    h2{font-size:clamp(1.9rem,3.55vw,3.35rem);font-weight:400;line-height:1.1;letter-spacing:-.035em}
+    .intro-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(44px,8vw,120px);align-items:start}
+    .prose{color:var(--ink-2);font-weight:300;font-size:1.04rem;line-height:1.88}
+    .prose p + p{margin-top:22px}
+    .quote{margin-top:clamp(52px,8vw,100px);padding:40px 0 8px;border-top:1px solid var(--ink);display:grid;grid-template-columns:130px 1fr;gap:35px}
+    .quote-index{font:500 10px/1 var(--display);letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3)}
+    blockquote{font:400 clamp(1.45rem,2.4vw,2.3rem)/1.35 var(--display);letter-spacing:-.028em;max-width:38ch}
+    blockquote::before{content:"“";color:var(--accent);font-size:1.35em;margin-right:3px}
+
+    .materials{background:var(--ink);color:var(--white);position:relative;overflow:hidden}
+    .materials::before{content:"02";position:absolute;right:-.04em;top:-.24em;font:600 clamp(14rem,33vw,31rem)/1 var(--display);letter-spacing:-.1em;color:rgba(255,255,255,.025)}
+    .materials .section-label{color:rgba(255,255,255,.55)}
+    .materials-head{display:grid;grid-template-columns:1fr .72fr;gap:60px;align-items:end;position:relative}
+    .materials-intro{color:rgba(255,255,255,.64);font-weight:300;line-height:1.8;max-width:50ch}
+    .ebook-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:64px;position:relative}
+    .ebook-card{min-height:420px;padding:34px;display:flex;flex-direction:column;border:1px solid var(--line-dark);position:relative;overflow:hidden;transition:transform .35s var(--ease),border-color .35s}
+    .ebook-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.42)}
+    .ebook-card.featured{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+    .volume{font-size:9px;text-transform:uppercase;letter-spacing:.22em;font-weight:500;color:rgba(255,255,255,.54)}
+    .featured .volume{color:rgba(23,23,23,.55)}
+    .ebook-no{position:absolute;right:26px;top:12px;font:500 5.8rem/1 var(--display);letter-spacing:-.08em;color:rgba(255,255,255,.06)}
+    .featured .ebook-no{color:rgba(23,23,23,.08)}
+    .ebook-card h3{font-size:clamp(1.45rem,2.2vw,2rem);font-weight:500;line-height:1.14;letter-spacing:-.032em;max-width:16ch;margin-top:38px}
+    .ebook-kicker{font:400 1.05rem/1.4 var(--display);margin-top:auto;padding-top:44px}
+    .ebook-copy{margin-top:13px;color:rgba(255,255,255,.62);font-size:.92rem;font-weight:300;line-height:1.78;max-width:49ch}
+    .featured .ebook-copy{color:rgba(23,23,23,.72)}
+    .materials-cta{margin-top:34px;text-align:center}
+    .materials .button{background:var(--white);color:var(--ink);border-color:var(--white)}
+    .materials .button:hover{background:var(--accent);border-color:var(--accent)}
+
+    .topics{background:var(--white)}
+    .topics-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end}
+    .topic-list{margin-top:60px;border-top:1px solid var(--ink)}
+    .topic-item{display:grid;grid-template-columns:110px .78fr 1.15fr;gap:28px;padding:31px 0;border-bottom:1px solid var(--line);align-items:baseline}
+    .roman{font:500 1rem/1 var(--display);letter-spacing:.08em;color:var(--accent)}
+    .topic-item h3{font-size:1.15rem;font-weight:500;letter-spacing:-.02em}
+    .topic-item p{color:var(--ink-2);font-size:.94rem;font-weight:300;line-height:1.75}
+
+    .office-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(50px,9vw,130px);align-items:start}
+    .office-mark{min-height:330px;background:var(--accent);padding:34px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+    .office-mark::after{content:"B";position:absolute;right:-.06em;bottom:-.26em;font:600 18rem/1 var(--display);letter-spacing:-.1em;color:rgba(23,23,23,.09)}
+    .office-mark span{font-size:9px;letter-spacing:.22em;text-transform:uppercase;position:relative;z-index:1}
+    .office-mark strong{font:500 1.8rem/1.12 var(--display);letter-spacing:-.032em;max-width:12ch;position:relative;z-index:1}
+    .office-copy h2{margin-top:8px}
+    .office-copy .prose{margin-top:30px}
+
+    .capture{background:var(--mist);padding-bottom:clamp(90px,11vw,150px)}
+    .capture-head{text-align:center;max-width:760px;margin:0 auto 55px}
+    .capture-head .section-label{justify-content:center}
+    .capture-head p{color:var(--ink-2);font-weight:300;margin-top:20px}
+    .form-shell{background:var(--white);display:grid;grid-template-columns:.72fr 1.28fr;min-height:620px;box-shadow:0 28px 80px -56px rgba(23,23,23,.5)}
+    .form-aside{background:var(--ink);color:var(--white);padding:42px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+    .form-aside::after{content:"02";position:absolute;right:-.08em;bottom:-.19em;font:600 13rem/1 var(--display);letter-spacing:-.1em;color:rgba(255,255,255,.04)}
+    .aside-top{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.56)}
+    .aside-title{font:500 clamp(1.55rem,2.5vw,2.2rem)/1.12 var(--display);letter-spacing:-.032em;max-width:12ch;position:relative;z-index:1}
+    .aside-meta{font-size:9px;line-height:2;text-transform:uppercase;letter-spacing:.16em;color:rgba(255,255,255,.48);position:relative;z-index:1}
+    .form-area{padding:clamp(34px,5vw,64px)}
+    .fields{display:grid;grid-template-columns:1fr 1fr;gap:25px 24px}
+    .field{position:relative;padding-top:9px}
+    .field.full{grid-column:1/-1}
+    .field input{width:100%;height:48px;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;color:var(--ink);outline:none;padding:13px 0 3px}
+    .field label{position:absolute;left:0;top:21px;color:var(--ink-3);font-size:.86rem;pointer-events:none;transition:all .22s var(--ease)}
+    .field input:focus + label,.field input:not(:placeholder-shown) + label{top:0;font-size:9px;text-transform:uppercase;letter-spacing:.11em;color:var(--ink)}
+    .field::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+    .field:focus-within::after{transform:scaleX(1)}
+    .field.invalid input{border-bottom-color:#b0372d}
+    .field-error{display:none;color:#a72b23;font-size:9px;margin-top:6px}
+    .field.invalid .field-error{display:block}
+    .honeypot{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important}
+    .consent{display:grid;grid-template-columns:18px 1fr;gap:11px;align-items:start;margin-top:30px;color:var(--ink-2);font-size:.75rem;line-height:1.7;cursor:pointer}
+    .consent input{width:17px;height:17px;margin-top:2px;accent-color:var(--ink)}
+    .consent.invalid{color:#a72b23}
+    .submit{margin-top:26px;width:100%;min-height:56px}
+    .submit:disabled{cursor:wait;opacity:.65;transform:none}
+    .form-error{display:none;margin-top:15px;color:#a72b23;font-size:.76rem;line-height:1.7}
+    .form-error.on{display:block}
+    .trust{margin-top:25px;padding-top:22px;border-top:1px solid var(--line)}
+    .trust p{display:flex;gap:10px;color:var(--ink-3);font-size:.7rem;line-height:1.7}
+    .trust p::before{content:"—";color:var(--accent);font-weight:600}
+    .trust p + p{margin-top:5px}
+    .success{display:none;height:100%;min-height:500px;align-content:center;text-align:center;padding:30px}
+    .success.on{display:grid}
+    .success-mark{width:52px;height:52px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;margin:0 auto 25px;font-size:1.35rem;color:var(--accent)}
+    .success h3{font-size:clamp(1.65rem,2.7vw,2.45rem);font-weight:500;letter-spacing:-.032em}
+    .success p{max-width:54ch;margin:17px auto 0;color:var(--ink-2);font-weight:300}
+    .download-list{display:grid;gap:10px;margin:29px auto 0;width:min(520px,100%)}
+    .download-list .button{border-radius:0;justify-content:space-between;text-align:left}
+    .download-list .button::after{content:"PDF ↓";font-size:8px;color:var(--accent-light)}
+
+    footer{background:var(--ink);color:var(--white);padding:64px 0 28px}
+    footer .logo{filter:brightness(0) invert(1)}
+    .footer-top{display:flex;justify-content:space-between;align-items:center;gap:28px;padding-bottom:44px}
+    .footer-mail{color:rgba(255,255,255,.66);font-size:.84rem;text-decoration:none}
+    .footer-mail:hover{color:var(--accent)}
+    .footer-bottom{border-top:1px solid var(--line-dark);padding-top:25px;display:grid;grid-template-columns:1fr auto;gap:34px;color:rgba(255,255,255,.42);font-size:.68rem;line-height:1.7}
+    .footer-bottom p:first-child{max-width:85ch}
+
+    [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease-out),transform .9s var(--ease-out)}
+    [data-reveal].in{opacity:1;transform:none}
+
+    @media(max-width:900px){
+      .hero{padding-top:150px}
+      .intro-grid,.materials-head,.topics-head,.office-grid{grid-template-columns:1fr;gap:36px}
+      .hero-grid>div{max-width:min(720px,68vw)}
+      h1{max-width:17ch}
+      .quote{grid-template-columns:1fr;gap:18px}
+      .ebook-grid{grid-template-columns:1fr}
+      .topic-item{grid-template-columns:75px 1fr}
+      .topic-item p{grid-column:2}
+      .office-mark{min-height:270px}
+      .form-shell{grid-template-columns:1fr}
+      .form-aside{min-height:260px}
+      .aside-title{max-width:14ch}
+    }
+    @media(max-width:660px){
+      .wrap,.narrow{width:calc(100% - 32px)}
+      .context-bar{height:27px;padding:0 12px;font-size:6.5px;letter-spacing:.12em;white-space:nowrap;overflow:hidden}
+      .context-bar i{padding-inline:7px}
+      header{top:27px;padding:15px 0}
+      header.stuck{padding:9px 0}
+      .header-inner{gap:10px}
+      .logo{width:138px;max-width:42vw}
+      .header-links{gap:10px}
+      .institutional{display:none}
+      .pill{min-height:40px;padding:0 12px;display:inline-flex;align-items:center;font-size:7.5px!important;letter-spacing:.12em!important}
+      .hero{padding:118px 0 58px;min-height:auto;background-position:74% center}
+      .hero::before{background:linear-gradient(90deg,rgba(244,242,237,.98) 0%,rgba(244,242,237,.95) 68%,rgba(244,242,237,.68) 100%)}
+      .hero-grid>div{max-width:100%}
+      .eyebrow,.section-label{gap:10px;font-size:8px;letter-spacing:.19em;line-height:1.55}
+      .eyebrow::before,.section-label::before{width:25px;height:2px}
+      .eyebrow{margin-bottom:20px}
+      h1{max-width:100%;font-size:clamp(2rem,9.3vw,2.4rem);line-height:1.12;letter-spacing:-.03em;text-wrap:pretty}
+      h2{font-size:clamp(1.75rem,8vw,2.25rem);line-height:1.13;text-wrap:pretty}
+      .hero-copy{margin-top:22px;font-size:.94rem;line-height:1.72}
+      .hero-actions{align-items:stretch;flex-direction:column}
+      .hero-actions .button{width:100%;min-height:49px;padding-inline:15px;text-align:center}
+      .support{font-size:8px;line-height:1.6;text-align:center}
+      .marquee span{padding:14px 0;font-size:8px;letter-spacing:.15em}
+      .marquee b{padding:0 16px}
+      section{padding:68px 0}
+      .section-label{margin-bottom:17px}
+      .intro-grid,.materials-head,.topics-head,.office-grid{gap:28px}
+      .prose{font-size:.96rem;line-height:1.78}
+      .quote{margin-top:46px;padding-top:27px}
+      blockquote{font-size:1.35rem;line-height:1.4}
+      .ebook-grid{gap:12px;margin-top:38px}
+      .ebook-card{min-height:0;padding:27px 24px}
+      .ebook-no{right:20px;font-size:4.7rem}
+      .ebook-card h3{margin-top:31px;font-size:1.55rem;max-width:17ch}
+      .ebook-kicker{margin-top:0;padding-top:38px;font-size:1rem}
+      .ebook-copy{font-size:.88rem;line-height:1.72}
+      .materials-cta{margin-top:24px}
+      .materials-cta .button{width:100%}
+      .topic-list{margin-top:38px}
+      .topic-item{grid-template-columns:45px 1fr;gap:15px}
+      .topic-item{padding:24px 0;align-items:start}
+      .topic-item h3{font-size:1.05rem}
+      .topic-item p{font-size:.88rem;line-height:1.68}
+      .office-mark{min-height:220px;padding:26px}
+      .office-mark::after{font-size:14rem}
+      .office-mark strong{font-size:1.55rem}
+      .capture{padding-bottom:68px}
+      .capture-head{margin-bottom:36px;text-align:left}
+      .capture-head .section-label{justify-content:flex-start}
+      .capture-head p{margin-top:15px;font-size:.93rem}
+      .fields{grid-template-columns:1fr}
+      .field.full{grid-column:auto}
+      .form-shell{min-height:0;box-shadow:0 20px 50px -42px rgba(23,23,23,.55)}
+      .form-area{padding:32px 22px}
+      .form-aside{padding:27px 24px;min-height:205px}
+      .form-aside::after{font-size:10rem}
+      .aside-title{font-size:1.65rem;max-width:15ch}
+      .field label{font-size:.8rem}
+      .consent{margin-top:26px;font-size:.71rem}
+      .submit{min-height:52px}
+      .trust p{font-size:.67rem}
+      .success{min-height:440px;padding:22px 0}
+      .success h3{font-size:1.75rem;line-height:1.18}
+      .success p{font-size:.91rem;line-height:1.7}
+      .download-list .button{min-height:58px;padding:12px 15px;gap:12px;font-size:8px;line-height:1.45}
+      footer{padding:50px 0 25px}
+      .footer-top,.footer-bottom{display:flex;flex-direction:column;align-items:flex-start}
+      .footer-top{gap:22px;padding-bottom:32px}
+      .footer-mail{font-size:.76rem;overflow-wrap:anywhere}
+      .footer-bottom{gap:12px;font-size:.65rem}
+    }
+    @media(max-width:380px){
+      .wrap,.narrow{width:calc(100% - 26px)}
+      .logo{width:122px}
+      .pill{padding-inline:10px;font-size:7px!important}
+      .context-bar{font-size:6px;letter-spacing:.08em}
+      .hero{padding-top:108px}
+      h1{font-size:1.9rem}
+      .button{letter-spacing:.09em}
+      .form-area{padding-inline:18px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .marquee{animation:none}
+      [data-reveal]{opacity:1;transform:none;transition:none}
+      .button,.ebook-card{transition:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="context-bar">NR-1 <i>·</i> Saúde mental no trabalho <i>·</i> Material gratuito</div>
+
+  <header id="header">
+    <div class="wrap header-inner">
+      <a href="https://benicio.com.br" aria-label="Benício Advogados Associados — site institucional">
+        <img class="logo" src="https://benicio.com.br/wp-content/uploads/2023/08/Benicio_Logo_Geral_Restrita-e1748362745198.png" alt="Benício Advogados Associados">
+      </a>
+      <nav class="header-links" aria-label="Navegação principal">
+        <a class="institutional" href="https://benicio.com.br" target="_blank" rel="noopener">Site institucional</a>
+        <a class="pill" href="#acesso">Receber os e-books</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow" data-reveal>Saúde mental no trabalho e a nova NR-1</p>
+          <h1 id="hero-title" data-reveal>O bem-estar da sua equipe entrou para o <strong>mapa de riscos</strong> da empresa e saber conduzir isso virou parte do negócio.</h1>
+          <p class="hero-copy" data-reveal>Uma mudança nas regras de segurança do trabalho passou a exigir que as empresas cuidem, de forma organizada, dos fatores que afetam o bem-estar psicológico de quem trabalha. Preparamos dois materiais gratuitos que explicam, em linguagem simples, o que mudou e como conduzir isso na prática.</p>
+          <div class="hero-actions" data-reveal>
+            <a class="button" href="#acesso">Receber os e-books gratuitamente</a>
+            <a class="button secondary" href="#importancia">Entender o que mudou</a>
+          </div>
+          <p class="support" data-reveal>Dois e-books · Acesso imediato · Sem custo</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="topic-strip" aria-label="Temas abordados">
+      <div class="marquee" aria-hidden="true">
+        <span>O que mudou na NR-1 <b>◆</b> Quando posso demitir <b>◆</b> Afastamento e retorno <b>◆</b> Assédio e denúncias <b>◆</b> Metas e cobrança <b>◆</b> Home office <b>◆</b></span>
+        <span>O que mudou na NR-1 <b>◆</b> Quando posso demitir <b>◆</b> Afastamento e retorno <b>◆</b> Assédio e denúncias <b>◆</b> Metas e cobrança <b>◆</b> Home office <b>◆</b></span>
+      </div>
+    </div>
+
+    <section id="importancia">
+      <div class="wrap">
+        <div class="intro-grid">
+          <div data-reveal>
+            <p class="section-label">Por que esse assunto chegou até você</p>
+            <h2>Cuidar do ambiente de trabalho deixou de ser só uma boa intenção.</h2>
+          </div>
+          <div class="prose" data-reveal>
+            <p>As regras de segurança e saúde no trabalho passaram a tratar expressamente de temas como sobrecarga, pressão excessiva, assédio e falta de apoio — situações que podem adoecer as pessoas e, quando mal conduzidas, se transformam em processos, afastamentos e prejuízo à reputação da empresa.</p>
+            <p>A boa notícia é que dá para se organizar. E empresas que se preparam com cuidado não só reduzem riscos: constroem ambientes mais saudáveis, retêm talentos e tomam decisões difíceis com muito mais segurança.</p>
+          </div>
+        </div>
+        <div class="quote" data-reveal>
+          <span class="quote-index">Ponto de atenção</span>
+          <blockquote>O maior risco não é reconhecer um problema no ambiente de trabalho — é reconhecê-lo e não saber o que fazer a respeito.</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="materials" id="ebooks">
+      <div class="wrap">
+        <div class="materials-head">
+          <div data-reveal>
+            <p class="section-label">Dois materiais complementares, gratuitos</p>
+            <h2>Do entendimento à decisão: dois guias para percorrer o caminho completo.</h2>
+          </div>
+          <p class="materials-intro" data-reveal>Um explica as novas regras de forma clara. O outro mostra o que fazer diante das situações reais do dia a dia. Juntos, dão o quadro completo e podem ser lidos na ordem que você preferir.</p>
+        </div>
+
+        <div class="ebook-grid">
+          <article class="ebook-card" data-reveal>
+            <span class="volume">Volume 1</span><span class="ebook-no">01</span>
+            <h3>Guia de Conformidade à NR-1</h3>
+            <p class="ebook-kicker">A norma, de forma clara.</p>
+            <p class="ebook-copy">O que mudou nas regras, o que a sua empresa precisa fazer e por que a organização do trabalho virou tema de saúde. Ideal para quem quer entender o cenário e começar a se preparar com segurança.</p>
+          </article>
+          <article class="ebook-card featured" data-reveal>
+            <span class="volume">Volume 2</span><span class="ebook-no">02</span>
+            <h3>Decisões Difíceis de RH</h3>
+            <p class="ebook-kicker">A prática, em perguntas e respostas.</p>
+            <p class="ebook-copy">Posso demitir alguém em tratamento? O que fazer quando um colaborador diz que adoeceu por causa do trabalho? Como conduzir uma denúncia? Respostas diretas para as dúvidas que aparecem no dia a dia da gestão de pessoas.</p>
+          </article>
+        </div>
+        <div class="materials-cta" data-reveal><a class="button" href="#acesso">Quero receber os dois e-books</a></div>
+      </div>
+    </section>
+
+    <section class="topics">
+      <div class="wrap">
+        <div class="topics-head">
+          <div data-reveal>
+            <p class="section-label">O que você vai encontrar</p>
+            <h2>Assuntos que toda empresa vai precisar enfrentar.</h2>
+          </div>
+        </div>
+        <div class="topic-list">
+          <article class="topic-item" data-reveal><span class="roman">I</span><h3>O que realmente mudou</h3><p>Explicado sem juridiquês: o que a nova regra exige e o que ela não exige da sua empresa.</p></article>
+          <article class="topic-item" data-reveal><span class="roman">II</span><h3>Demissão com segurança</h3><p>Quando o desligamento de um colaborador adoecido é delicado e como se preparar para decidir bem.</p></article>
+          <article class="topic-item" data-reveal><span class="roman">III</span><h3>Afastamento e retorno</h3><p>O que observar quando alguém se afasta por saúde e volta ao trabalho.</p></article>
+          <article class="topic-item" data-reveal><span class="roman">IV</span><h3>Assédio, metas e denúncias</h3><p>Como cobrar resultados sem ultrapassar limites e como conduzir denúncias com responsabilidade.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap office-grid">
+        <div class="office-mark" data-reveal><span>Direito trabalhista · Prevenção</span><strong>Informação para decidir.</strong></div>
+        <div class="office-copy" data-reveal>
+          <p class="section-label">Quem preparou este material</p>
+          <h2>Benício Advogados Associados</h2>
+          <div class="prose"><p>Estes materiais foram elaborados por Marcos Paulo Lemos e Tiago Alvarenga de Almeida Caravela, da equipe trabalhista da Benício, que assessora empresas na prevenção de riscos, na gestão de passivos e na tomada de decisões sensíveis envolvendo pessoas. Nosso objetivo aqui é simples: colocar informação de qualidade, em linguagem acessível, nas mãos de quem precisa decidir.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="capture" id="acesso">
+      <div class="wrap">
+        <div class="capture-head" data-reveal>
+          <p class="section-label">Acesso gratuito</p>
+          <h2>Receba os dois e-books.</h2>
+          <p>Preencha seus dados para receber o acesso. É gratuito e sem compromisso.</p>
+        </div>
+
+        <div class="form-shell" data-reveal>
+          <aside class="form-aside" aria-label="Resumo do material">
+            <span class="aside-top">Coleção · Saúde mental no trabalho</span>
+            <strong class="aside-title">Dois volumes. Um caminho completo.</strong>
+            <span class="aside-meta">PDF · Acesso imediato<br>Conteúdo gratuito</span>
+          </aside>
+          <div class="form-area">
+            <form id="lead-form" novalidate>
+              <div class="fields">
+                <div class="field full"><input id="nome" name="nome" type="text" autocomplete="name" placeholder=" " aria-describedby="nome-error"><label for="nome">Nome completo</label><span class="field-error" id="nome-error">Informe seu nome completo.</span></div>
+                <div class="field"><input id="empresa" name="empresa" type="text" autocomplete="organization" placeholder=" " aria-describedby="empresa-error"><label for="empresa">Empresa</label><span class="field-error" id="empresa-error">Informe a empresa.</span></div>
+                <div class="field"><input id="cargo" name="cargo" type="text" autocomplete="organization-title" placeholder=" " aria-describedby="cargo-error"><label for="cargo">Cargo / área (ex.: RH, Jurídico, Diretoria)</label><span class="field-error" id="cargo-error">Informe seu cargo ou área.</span></div>
+                <div class="field"><input id="email" name="email" type="email" autocomplete="email" placeholder=" " aria-describedby="email-error"><label for="email">E-mail corporativo</label><span class="field-error" id="email-error">Informe um e-mail válido.</span></div>
+                <div class="field"><input id="telefone" name="telefone" type="tel" autocomplete="tel" inputmode="numeric" maxlength="15" placeholder=" " aria-describedby="telefone-error"><label for="telefone">Telefone (com DDD)</label><span class="field-error" id="telefone-error">Informe um telefone com DDD.</span></div>
+              </div>
+              <div class="honeypot" aria-hidden="true"><label for="website">Não preencha</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+              <label class="consent" id="consent-wrap"><input type="checkbox" id="lgpd" name="lgpd"><span>Concordo em receber os e-books e comunicações relacionadas a este conteúdo, conforme a LGPD.</span></label>
+              <button class="button submit" id="submit-button" type="submit">Receber os e-books</button>
+              <p class="form-error" id="form-error" role="alert">Não foi possível enviar agora. Tente novamente em instantes ou escreva para <a href="mailto:carolina.guglielmi@benicio.com.br">carolina.guglielmi@benicio.com.br</a>.</p>
+              <div class="trust" aria-label="Compromissos de privacidade">
+                <p>Seus dados não serão vendidos nem compartilhados para finalidades incompatíveis.</p>
+                <p>Tratamento conforme a LGPD, com finalidade limitada a este conteúdo.</p>
+                <p>Material exclusivamente informativo, sem custo e sem compromisso.</p>
+              </div>
+            </form>
+
+            <div class="success" id="success" role="status" aria-live="polite">
+              <span class="success-mark" aria-hidden="true">✓</span>
+              <h3>Tudo certo! Seus e-books estão a caminho.</h3>
+              <p>Enviamos o acesso para o seu e-mail e iniciamos os dois downloads automaticamente. Se o navegador bloquear algum arquivo, use os botões abaixo.</p>
+              <div class="download-list">
+                <a class="button" id="download-volume-1" href="guia-conformidade-nr1-benicio.pdf" download="Guia-de-Conformidade-NR1-Benicio.pdf">Baixar Volume 1 — Guia de Conformidade</a>
+                <a class="button" id="download-volume-2" href="decisoes-dificeis-rh-benicio.pdf" download="Decisoes-Dificeis-de-RH-Benicio.pdf">Baixar Volume 2 — Decisões Difíceis de RH</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <img class="logo" src="https://benicio.com.br/wp-content/uploads/2023/08/Benicio_Logo_Geral_Restrita-e1748362745198.png" alt="Benício Advogados Associados">
+        <a class="footer-mail" href="mailto:carolina.guglielmi@benicio.com.br">carolina.guglielmi@benicio.com.br</a>
+      </div>
+      <div class="footer-bottom">
+        <p>Material exclusivamente informativo. A aplicação das regras depende das circunstâncias e da documentação de cada empresa e não dispensa a orientação jurídica individualizada.</p>
+        <p>© 2026 Benício Advogados Associados</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      'use strict';
+      var header=document.getElementById('header');
+      var onScroll=function(){header.classList.toggle('stuck',window.scrollY>30)};
+      window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+      var reveal=document.querySelectorAll('[data-reveal]');
+      if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');observer.unobserve(entry.target)}})},{threshold:.12});
+        reveal.forEach(function(el){observer.observe(el)});
+      }else{reveal.forEach(function(el){el.classList.add('in')})}
+
+      var phone=document.getElementById('telefone');
+      phone.addEventListener('input',function(){
+        var digits=phone.value.replace(/\D/g,'').slice(0,11),out='';
+        if(digits.length)out='('+digits.slice(0,2);
+        if(digits.length>=3)out+=') '+(digits.length>10?digits.slice(2,7):digits.slice(2,6));
+        if(digits.length>=7)out+='-'+(digits.length>10?digits.slice(7):digits.slice(6));
+        phone.value=out;
+      });
+
+      var form=document.getElementById('lead-form');
+      var submit=document.getElementById('submit-button');
+      var consent=document.getElementById('consent-wrap');
+      var lgpd=document.getElementById('lgpd');
+      var failure=document.getElementById('form-error');
+      var downloadsStarted=false;
+      function triggerDownload(link){
+        var anchor=document.createElement('a');
+        anchor.href=link.href;
+        anchor.download=link.getAttribute('download')||'';
+        anchor.rel='noopener';
+        anchor.style.display='none';
+        document.body.appendChild(anchor);
+        anchor.click();
+        setTimeout(function(){anchor.remove()},1500);
+      }
+      function startDownloads(){
+        if(downloadsStarted)return;
+        downloadsStarted=true;
+        var volume1=document.getElementById('download-volume-1');
+        var volume2=document.getElementById('download-volume-2');
+        triggerDownload(volume1);
+        setTimeout(function(){triggerDownload(volume2)},650);
+      }
+      var rules={
+        nome:function(v){return v.trim().length>=5&&v.trim().split(/\s+/).length>=2},
+        empresa:function(v){return v.trim().length>=2},
+        cargo:function(v){return v.trim().length>=2},
+        email:function(v){return /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v.trim())},
+        telefone:function(v){var n=v.replace(/\D/g,'').length;return n===10||n===11}
+      };
+
+      Object.keys(rules).forEach(function(id){document.getElementById(id).addEventListener('input',function(){this.closest('.field').classList.remove('invalid');this.removeAttribute('aria-invalid')})});
+      lgpd.addEventListener('change',function(){consent.classList.remove('invalid')});
+
+      form.addEventListener('submit',function(event){
+        event.preventDefault();failure.classList.remove('on');
+        var firstInvalid=null;
+        Object.keys(rules).forEach(function(id){
+          var input=document.getElementById(id),valid=rules[id](input.value),field=input.closest('.field');
+          field.classList.toggle('invalid',!valid);
+          if(!valid){input.setAttribute('aria-invalid','true');if(!firstInvalid)firstInvalid=input}else{input.removeAttribute('aria-invalid')}
+        });
+        if(!lgpd.checked){consent.classList.add('invalid');if(!firstInvalid)firstInvalid=lgpd}
+        if(firstInvalid){firstInvalid.focus();return}
+
+        submit.disabled=true;submit.textContent='Enviando…';
+        var payload={
+          nome:document.getElementById('nome').value.trim(),
+          empresa:document.getElementById('empresa').value.trim(),
+          cargo:document.getElementById('cargo').value.trim(),
+          email:document.getElementById('email').value.trim(),
+          telefone:phone.value.trim(),lgpd:true,
+          website:document.getElementById('website').value
+        };
+
+        fetch('/api/nr1-lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+          .then(function(response){return response.json().catch(function(){return {ok:response.ok}})})
+          .then(function(result){
+            if(!result||!result.ok)throw new Error('send_failed');
+            form.style.display='none';
+            document.getElementById('success').classList.add('on');
+            document.getElementById('success').scrollIntoView({behavior:'smooth',block:'center'});
+            startDownloads();
+          })
+          .catch(function(){submit.disabled=false;submit.textContent='Receber os e-books';failure.classList.add('on')});
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,5 +1,31 @@
 # Landing — Guia PIS, Cofins e CBS · Benício Advogados
 
+## Landing — Saúde mental no trabalho e NR-1
+
+A nova página está em `/nr1/` e usa a função `/api/nr1-lead`. Após o cadastro,
+o Resend envia os dois links ao visitante e uma notificação interna para
+`carolina.guglielmi@benicio.com.br`.
+
+Os materiais entregues estão incluídos com estes nomes:
+
+- `nr1/guia-conformidade-nr1-benicio.pdf`
+- `nr1/decisoes-dificeis-rh-benicio.pdf`
+
+Depois que o lead é enviado com sucesso, a página inicia o download dos dois
+arquivos e mantém botões individuais como alternativa para navegadores que
+bloqueiam downloads múltiplos.
+
+Além de `RESEND_API_KEY` e `LEAD_FROM`, a nova página aceita estas variáveis:
+
+| Variável | Obrigatória | Uso |
+|---|---|---|
+| `NR1_LEAD_TO` | não | Destinatário interno; padrão: `carolina.guglielmi@benicio.com.br` |
+| `PUBLIC_SITE_URL` | não | URL pública usada nos links dos e-mails |
+| `NR1_EBOOK_1_URL` | não | Sobrescreve o link do Volume 1 |
+| `NR1_EBOOK_2_URL` | não | Sobrescreve o link do Volume 2 |
+
+---
+
 Página estática + uma função serverless que envia cada lead por e-mail para
 **novosnegocios@benicio.com.br** usando o [Resend](https://resend.com).
 
