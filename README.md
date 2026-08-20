@@ -2,14 +2,14 @@
 
 ## Landing — Saúde mental no trabalho e NR-1
 
-A nova página está em `/nr1/` e usa a função `/api/nr1-lead`. Após o cadastro,
+A página está na raiz (`/`) e usa a função `/api/nr1-lead`. Após o cadastro,
 o Resend envia os dois links ao visitante e uma notificação interna para
 `carolina.guglielmi@benicio.com.br`.
 
 Os materiais entregues estão incluídos com estes nomes:
 
-- `nr1/guia-conformidade-nr1-benicio.pdf`
-- `nr1/decisoes-dificeis-rh-benicio.pdf`
+- `guia-conformidade-nr1-benicio.pdf`
+- `decisoes-dificeis-rh-benicio.pdf`
 
 Depois que o lead é enviado com sucesso, a página inicia o download dos dois
 arquivos e mantém botões individuais como alternativa para navegadores que

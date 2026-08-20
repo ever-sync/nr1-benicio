@@ -21,7 +21,7 @@
       ]
     },
     {
-      "source": "/nr1/guia-conformidade-nr1-benicio.pdf",
+      "source": "/guia-conformidade-nr1-benicio.pdf",
       "headers": [
         {
           "key": "Content-Disposition",
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "source": "/nr1/decisoes-dificeis-rh-benicio.pdf",
+      "source": "/decisoes-dificeis-rh-benicio.pdf",
       "headers": [
         {
           "key": "Content-Disposition",

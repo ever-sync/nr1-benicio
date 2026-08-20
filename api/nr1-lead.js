@@ -4,7 +4,40 @@
  */
 
 const DEFAULT_TO = 'carolina.guglielmi@benicio.com.br';
-const DEFAULT_FROM = 'Benício Advogados <site@benicio.com.br>';
+const DEFAULT_FROM = 'Benicio Advogados <site@benicio.com.br>';
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
+
+function isAsciiEmail(value) {
+  return /^[\x00-\x7f]+$/.test(value) && EMAIL_RE.test(value);
+}
+
+function extractAsciiEmail(value) {
+  const raw = String(value || '').trim();
+  const bracketed = raw.match(/<\s*([^<>]+)\s*>$/);
+  const email = (bracketed ? bracketed[1] : raw).trim().toLowerCase();
+  return isAsciiEmail(email) ? email : '';
+}
+
+function normalizeFrom(value) {
+  const raw = String(value || '').trim();
+  const email = extractAsciiEmail(raw);
+  if (!email) return DEFAULT_FROM;
+
+  const bracketed = raw.match(/<\s*([^<>]+)\s*>$/);
+  if (!bracketed) return email;
+
+  const label = raw
+    .slice(0, raw.lastIndexOf('<'))
+    .trim()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\x20-\x7e]/g, '')
+    .replace(/[<>"]/g, '')
+    .trim();
+
+  return label ? `${label} <${email}>` : email;
+}
 
 const hits = new Map();
 function tooMany(ip) {
@@ -38,7 +71,7 @@ function validate(body) {
   if (data.nome.length < 5 || data.nome.split(/\s+/).length < 2) errors.push('nome');
   if (data.empresa.length < 2) errors.push('empresa');
   if (data.cargo.length < 2) errors.push('cargo');
-  if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(data.email)) errors.push('email');
+  if (!isAsciiEmail(data.email)) errors.push('email');
   if (data.digits.length < 10 || data.digits.length > 11) errors.push('telefone');
   if (body.lgpd !== true && body.lgpd !== 'true') errors.push('lgpd');
 
@@ -129,16 +162,20 @@ module.exports = async (req, res) => {
 
   const baseUrl = publicBaseUrl(req);
   const links = {
-    volume1: process.env.NR1_EBOOK_1_URL || `${baseUrl}/nr1/guia-conformidade-nr1-benicio.pdf`,
-    volume2: process.env.NR1_EBOOK_2_URL || `${baseUrl}/nr1/decisoes-dificeis-rh-benicio.pdf`,
+    volume1: process.env.NR1_EBOOK_1_URL || `${baseUrl}/guia-conformidade-nr1-benicio.pdf`,
+    volume2: process.env.NR1_EBOOK_2_URL || `${baseUrl}/decisoes-dificeis-rh-benicio.pdf`,
   };
   const meta = {
     when: `${new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })} (Brasília)`,
     origin: req.headers.referer || req.headers.origin || 'direto',
     ip,
   };
-  const from = process.env.LEAD_FROM || DEFAULT_FROM;
-  const internalTo = process.env.NR1_LEAD_TO || process.env.LEAD_TO || DEFAULT_TO;
+  const from = normalizeFrom(process.env.LEAD_FROM || DEFAULT_FROM);
+  const configuredTo = process.env.NR1_LEAD_TO || process.env.LEAD_TO;
+  const internalTo = extractAsciiEmail(configuredTo) || DEFAULT_TO;
+  if (configuredTo && !extractAsciiEmail(configuredTo)) {
+    console.warn('Destinatario interno invalido; usando o endereco padrao');
+  }
   const messages = [
     {
       from,
