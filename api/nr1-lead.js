@@ -19,6 +19,14 @@ function extractAsciiEmail(value) {
   return isAsciiEmail(email) ? email : '';
 }
 
+function extractAsciiEmails(value) {
+  const entries = Array.isArray(value)
+    ? value
+    : String(value || '').split(/[,;\n]+/);
+
+  return [...new Set(entries.map(extractAsciiEmail).filter(Boolean))];
+}
+
 function normalizeFrom(value) {
   const raw = String(value || '').trim();
   const email = extractAsciiEmail(raw);
@@ -172,8 +180,9 @@ module.exports = async (req, res) => {
   };
   const from = normalizeFrom(process.env.LEAD_FROM || DEFAULT_FROM);
   const configuredTo = process.env.NR1_LEAD_TO || process.env.LEAD_TO;
-  const internalTo = extractAsciiEmail(configuredTo) || DEFAULT_TO;
-  if (configuredTo && !extractAsciiEmail(configuredTo)) {
+  const configuredRecipients = extractAsciiEmails(configuredTo);
+  const internalTo = configuredRecipients.length ? configuredRecipients : [DEFAULT_TO];
+  if (configuredTo && !configuredRecipients.length) {
     console.warn('Destinatario interno invalido; usando o endereco padrao');
   }
   const messages = [
@@ -186,7 +195,7 @@ module.exports = async (req, res) => {
     },
     {
       from,
-      to: [internalTo],
+      to: internalTo,
       reply_to: data.email,
       subject: `Novo lead — ${data.empresa} — E-books NR-1`,
       html: notificationEmail(data, meta),

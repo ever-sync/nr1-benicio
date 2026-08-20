@@ -19,7 +19,7 @@ Além de `RESEND_API_KEY` e `LEAD_FROM`, a nova página aceita estas variáveis:
 
 | Variável | Obrigatória | Uso |
 |---|---|---|
-| `NR1_LEAD_TO` | não | Destinatário interno; padrão: `carolina.guglielmi@benicio.com.br` |
+| `NR1_LEAD_TO` | não | Destinatários internos separados por vírgula; padrão: `carolina.guglielmi@benicio.com.br` |
 | `PUBLIC_SITE_URL` | não | URL pública usada nos links dos e-mails |
 | `NR1_EBOOK_1_URL` | não | Sobrescreve o link do Volume 1 |
 | `NR1_EBOOK_2_URL` | não | Sobrescreve o link do Volume 2 |
