@@ -4,7 +4,7 @@
  */
 
 const DEFAULT_TO = 'carolina.guglielmi@benicio.com.br';
-const DEFAULT_FROM = 'Benicio Advogados <site@benicio.com.br>';
+const DEFAULT_FROM = 'Benicio Advogados <site@mailp.benicio.com.br>';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
 

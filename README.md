@@ -76,7 +76,7 @@ Vercel → **Settings → Environment Variables** (marque Production, Preview e 
 | Variável | Obrigatória | Valor |
 |---|---|---|
 | `RESEND_API_KEY` | sim | a chave `re_...` do passo 1 |
-| `LEAD_FROM` | não | `Site Benício <site@benicio.com.br>` — precisa ser do domínio verificado |
+| `LEAD_FROM` | não | `Benicio Advogados <site@mailp.benicio.com.br>` — usa o domínio verificado no Resend |
 | `LEAD_TO` | não | padrão `novosnegocios@benicio.com.br` |
 | `LEAD_BCC` | não | cópia oculta, ex. um endereço do CRM |
 
