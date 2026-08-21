@@ -4,7 +4,8 @@
 
 A página está na raiz (`/`) e usa a função `/api/nr1-lead`. Após o cadastro,
 o Resend envia os dois links ao visitante e uma notificação interna para
-`carolina.guglielmi@benicio.com.br`.
+`carolina.guglielmi@benicio.com.br` e `mkt@benicio.com.br`. O lead também é
+gravado no painel central em `https://cbs.benicio.com.br/admin/`.
 
 Os materiais entregues estão incluídos com estes nomes:
 
@@ -76,6 +77,7 @@ Vercel → **Settings → Environment Variables** (marque Production, Preview e 
 | Variável | Obrigatória | Valor |
 |---|---|---|
 | `RESEND_API_KEY` | sim | a chave `re_...` do passo 1 |
+| `DATABASE_URL` | sim | conexão PostgreSQL compartilhada com o painel de leads |
 | `LEAD_FROM` | não | `Benicio Advogados <site@mailp.benicio.com.br>` — usa o domínio verificado no Resend |
 | `LEAD_TO` | não | padrão `novosnegocios@benicio.com.br` |
 | `LEAD_BCC` | não | cópia oculta, ex. um endereço do CRM |

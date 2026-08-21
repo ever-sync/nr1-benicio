@@ -5,5 +5,8 @@
   "description": "Landing page de captura — Guia PIS, Cofins e CBS — Benício Advogados",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "pg": "^8.16.3"
   }
 }

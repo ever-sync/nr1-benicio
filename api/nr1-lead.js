@@ -3,6 +3,10 @@
  * Valida o cadastro, notifica a equipe e envia os dois acessos ao lead via Resend.
  */
 
+const { randomUUID } = require('crypto');
+const { buildLeadReport } = require('../lib/lead-report');
+const { markEmailSent, saveLead } = require('../lib/leads-db');
+
 const DEFAULT_TO = 'carolina.guglielmi@benicio.com.br';
 const DEFAULT_FROM = 'Benicio Advogados <site@mailp.benicio.com.br>';
 
@@ -181,7 +185,7 @@ module.exports = async (req, res) => {
   const from = normalizeFrom(process.env.LEAD_FROM || DEFAULT_FROM);
   const configuredTo = process.env.NR1_LEAD_TO || process.env.LEAD_TO;
   const configuredRecipients = extractAsciiEmails(configuredTo);
-  const internalTo = configuredRecipients.length ? configuredRecipients : [DEFAULT_TO];
+  const internalTo = [...new Set([...(configuredRecipients.length ? configuredRecipients : [DEFAULT_TO]), 'mkt@benicio.com.br'])];
   if (configuredTo && !configuredRecipients.length) {
     console.warn('Destinatario interno invalido; usando o endereco padrao');
   }
@@ -204,6 +208,29 @@ module.exports = async (req, res) => {
   ];
   if (process.env.LEAD_BCC) messages[1].bcc = [process.env.LEAD_BCC];
 
+  const leadId = randomUUID();
+  const reportHtml = buildLeadReport({
+    empresa: data.empresa,
+    nome: data.nome,
+    cargo: data.cargo,
+    email: data.email,
+    telefone: data.telefone,
+    protocol: `BEN-NR1-${leadId.slice(0, 8).toUpperCase()}`,
+    when: meta.when.replace(' (Brasília)', ''),
+  });
+
+  try {
+    await saveLead({
+      ...data,
+      id: leadId,
+      mensagem: 'Solicitou os dois e-books sobre saúde mental no trabalho e NR-1.',
+      reportHtml,
+    });
+  } catch (error) {
+    console.error('Save lead', error);
+    return res.status(502).json({ ok: false, error: 'database_error' });
+  }
+
   try {
     const response = await fetch('https://api.resend.com/emails/batch', {
       method: 'POST',
@@ -214,7 +241,8 @@ module.exports = async (req, res) => {
       console.error('Resend', response.status, await response.text());
       return res.status(502).json({ ok: false, error: 'send_failed' });
     }
-    return res.status(200).json({ ok: true });
+    try { await markEmailSent(leadId); } catch (error) { console.error('Mark email sent', error); }
+    return res.status(200).json({ ok: true, leadId });
   } catch (error) {
     console.error('Resend exception', error);
     return res.status(502).json({ ok: false, error: 'send_failed' });
